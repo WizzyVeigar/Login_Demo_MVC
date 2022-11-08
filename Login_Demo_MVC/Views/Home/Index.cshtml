@@ -1,0 +1,43 @@
+﻿@using Login_Demo_MVC.DTO
+@model LoginCredentModel;
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+	{
+		@Html.ValidationSummary(true)
+		<fieldset>
+			<legend>Aaaaaaaaaaaaaaaaaah</legend>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.UserName)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.UserName)
+				@Html.ValidationMessageFor(model => model.UserName)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Password)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Password)
+				@Html.ValidationMessageFor(model => model.Password)
+			</div>
+
+			@*   <div class="editor-label">
+		@Html.LabelFor(model => model.USalt)
+		</div>*@
+			@*  <div class="editor-field">
+		@Html.EditorFor(model => model.USalt)
+		@Html.ValidationMessageFor(model => model.USalt)
+		</div>*@
+
+			<p>
+				<input type="submit" value="Create" />
+			</p>
+		</fieldset>
+	}
+</div>
