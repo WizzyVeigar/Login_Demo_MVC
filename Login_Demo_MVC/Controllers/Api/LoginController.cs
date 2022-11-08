@@ -10,6 +10,10 @@ namespace Login_Demo_MVC.Controllers.Api
     [ApiController]
     public class LoginController : ControllerBase
     {
+        //How do I do this properly???
+        LoginManager manager;
+
+
         [HttpPost]
         [Route("Login")]
         public bool Login([FromForm]LoginCredentModel credentials)
@@ -24,6 +28,7 @@ namespace Login_Demo_MVC.Controllers.Api
         {
             if (ModelState.IsValid)
             {
+                
                 //If everything is valid, go to home page
                 RedirectToAction("Index","Home");
             }
