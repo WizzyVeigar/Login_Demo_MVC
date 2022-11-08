@@ -1,5 +1,6 @@
 ﻿using Login_Demo_MVC.DTO;
 using Login_Demo_MVC.Models;
+using System.Text;
 
 namespace Login_Demo_MVC.Classes
 {
@@ -30,6 +31,19 @@ namespace Login_Demo_MVC.Classes
                 }
             }
             return false;
+        }
+
+        public bool RegisterUser(LoginCredentModel loginCredent)
+        {
+            byte[] salt = Hashing.GenerateSalt();
+            string hashedPass = Convert.ToBase64String(Hashing.HashMyPassword(Encoding.UTF8.GetBytes(loginCredent.Password), salt, 50000));
+            
+            return SqlAccess.RegiserUser(loginCredent.UserName, hashedPass, Convert.ToBase64String(salt));
+        }
+
+        public void UpdateSalt(User user)
+        {
+
         }
     }
 }

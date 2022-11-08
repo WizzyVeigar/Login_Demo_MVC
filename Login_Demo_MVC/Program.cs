@@ -18,7 +18,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 //Add also Sql generic
-builder.Services.AddScoped<MsSqlAccess>();
+builder.Services.AddSingleton<MsSqlAccess>();
+builder.Services.AddSingleton<LoginManager>();
 
 var app = builder.Build();
 

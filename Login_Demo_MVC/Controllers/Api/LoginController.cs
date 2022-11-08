@@ -10,9 +10,11 @@ namespace Login_Demo_MVC.Controllers.Api
     [ApiController]
     public class LoginController : ControllerBase
     {
-        //How do I do this properly???
         LoginManager manager;
-
+        public LoginController(LoginManager manager)
+        {
+            this.manager = manager;
+        }
 
         [HttpPost]
         [Route("Login")]

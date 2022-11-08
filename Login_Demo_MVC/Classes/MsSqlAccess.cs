@@ -17,6 +17,7 @@ namespace Login_Demo_MVC.Classes
 
         public bool RegiserUser(string username, string hashedPass, string salt)
         {
+            //save into db
             return false;
         }
 
